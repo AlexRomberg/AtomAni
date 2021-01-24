@@ -8,6 +8,8 @@ let AnimationRunning = false;
 let Charts = {};
 let controls;
 
+export { AnimationRunning };
+
 export function init() {
     const canvas = document.querySelector('#sim');
     const renderer = new Three.WebGLRenderer({
@@ -44,7 +46,7 @@ export function init() {
 }
 
 function initCharts() {
-    Charts.temp = Chart.generateChart('fpsChart', 'rgba(200,0,0,1)', 'rgba(170,0,0,0.4)');
+    // Charts.temp = Chart.generateChart('fpsChart', 'rgba(200,0,0,1)', 'rgba(170,0,0,0.4)');
 }
 
 export function addAtoms(atoms, scene) {
@@ -52,6 +54,10 @@ export function addAtoms(atoms, scene) {
         scene.add(atom.object);
         AtomList.push(atom);
     });
+}
+
+export function clearAtoms() {
+    AtomList = new Array();
 }
 
 function resizeRendererToDisplaySize(renderer) {
@@ -107,7 +113,7 @@ export function startRendering(renderInfo) {
 
 function logFPS(passedTime, frame) {
     if (frame % 10 == 0) {
-        Chart.addPoint(Charts.temp, 1000 / passedTime, frame);
+        // Chart.addPoint(Charts.temp, 1000 / passedTime, frame);
     }
 }
 

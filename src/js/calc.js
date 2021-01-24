@@ -2,10 +2,11 @@ import { Vector } from '../res/lib/vector.js';
 
 const MaxDistance = 100000000000;
 const CONST_k = 1.380658e-23;
-const atomMass = 3.36e5;
-const epsilon = 1.8;
-const sigma = 15;
-const sigma2 = Math.pow(sigma, 2);
+
+let atomMass = 3.36e5;
+let epsilon = 1.8;
+let sigma = 15;
+let sigma2 = Math.pow(sigma, 2);
 
 export function updatePositions(atomList, timeStep) {
     let forces = getForce(atomList);
@@ -71,3 +72,12 @@ function dropIsVector(obj) {
         z: obj.z
     };
 }
+
+function updateParams() {
+    atomMass = $('#massInput').val();
+    sigma = $('#sigmaInput').val();
+    sigma2 = sigma * sigma;
+    epsilon = $('#epsilonInput').val();
+}
+
+$('#btnReset').click(updateParams);

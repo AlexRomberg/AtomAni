@@ -1,9 +1,11 @@
 import * as Atoms from './atoms.js';
 import * as Simulation from './simulation.js';
 
-
+// ----------------------------------------------------------------------------
 // simulationWindow resizing
+// ----------------------------------------------------------------------------
 window.addEventListener("resize", handleResize);
+handleResize();
 
 function handleResize() {
     let windowWidth = $(".simulationWindow").width();
@@ -15,16 +17,35 @@ function handleResize() {
     }
     $("#sim").css("width", windowWidth + "px");
 }
-handleResize();
 
+// ----------------------------------------------------------------------------
 // simulation
-let renderInfo = Simulation.init();
-// let AtomList = Atoms.generateGrid(2, 1, 1);
-let AtomList = [
-    Atoms.create("ar", 25, 0, 0),
-    Atoms.create("ne", -25, 0, 0) /* blau */
-]
-Simulation.addAtoms(AtomList, renderInfo.scene);
-Simulation.startRendering(renderInfo);
+// ----------------------------------------------------------------------------
+function loadSimulation() {
+    let renderInfo = Simulation.init();
+    let AtomList = [
+        Atoms.create("ar", 25, 0, 0),
+        Atoms.create("ne", -25, 0, 0)
+    ]
+    Simulation.addAtoms(AtomList, renderInfo.scene);
+    Simulation.startRendering(renderInfo);
+}
 
-setInterval(() => { Simulation.start(); }, 1000);
+loadSimulation();
+
+$('#btnReset').click(() => {
+    Simulation.stop();
+    $('#btnPlay').text("Start");
+    Simulation.clearAtoms();
+    loadSimulation();
+});
+
+$('#btnPlay').click(() => {
+    if (Simulation.AnimationRunning) {
+        Simulation.stop();
+        $('#btnPlay').text("Start");
+    } else {
+        Simulation.start();
+        $('#btnPlay').text("Pause");
+    }
+});

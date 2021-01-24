@@ -43,7 +43,7 @@ Copyright (c) 2020 Alexander Romberg, Dario Romandini
             </div>
             <div class="controlPane">
                 <!-- Controls -->
-                <div>
+                <!-- <div>
                     <h3>Diagramme</h3>
                     <div class="diagramms">
                         <div class="diagramm">
@@ -53,13 +53,37 @@ Copyright (c) 2020 Alexander Romberg, Dario Romandini
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div>
                     <h3>Steuerung</h3>
                     <div class="controlls">
-                        <div class="controll">
+                        <!-- <div class="controll">
                             <h4>Temperatur</h4>
                             <input type="range" class="slider" id="temp" min="-3" max="3" value="0" step="1">
+                        </div> -->
+                        <div class="controll">
+                            <h4>Animation</h4>
+                            <span class="row rounded">
+                                <button id="btnReset">Reset</button>
+                                <button id="btnPlay">Start</button>
+                            </span>
+                        </div>
+                        <div class="controll">
+                            <h4>Parameter</h4>
+                            <span class="collumn">
+                                <span class="explained-input">
+                                    <label for="epsilonInput">Epsilon</label>
+                                    <input class="number-input" id="epsilonInput" name="epsilonInput" type="number" min="0" value="1.8">
+                                </span>
+                            <span class="explained-input">
+                                    <label for="sigmaInput">Sigma</label>
+                                    <input class="number-input" id="sigmaInput" name="sigmaInput" type="number" min="0" value="15">
+                                </span>
+                            <span class="explained-input">
+                                    <label for="massInput">Atom Masse</label>
+                                    <input class="number-input" id="massInput" name="massInput" type="number" min="0" value="336000">
+                                </span>
+                            </span>
                         </div>
                     </div>
                 </div>

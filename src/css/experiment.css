@@ -80,6 +80,66 @@
     cursor: pointer;
 }
 
+.row {
+    display: flex;
+    width: 100%;
+    align-content: center;
+    justify-content: center;
+}
+
+.row *, .collumn * {
+    width: 100%;
+}
+
+.collumn {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.rounded {
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+button {
+    padding: 5px;
+    border: none;
+    background-color: #fff2;
+}
+
+button:hover {
+    background-color: #fff3;
+}
+
+.explained-input {
+    display: flex;
+    text-align: left;
+    padding: 2px 5px;
+}
+
+.explained-input label {
+    margin-bottom: 10px; 
+}
+
+.number-input {
+    padding: 2px 5px;
+    border-radius: 5px;
+    background-color: #fff2;
+    border: none
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 @media only screen and (max-width: 890px) {
     .simulationWindow {
         flex-flow: column nowrap;
