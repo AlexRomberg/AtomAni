@@ -21,8 +21,9 @@ function handleResize() {
 // ----------------------------------------------------------------------------
 // simulation
 // ----------------------------------------------------------------------------
+let renderInfo = Simulation.init();
+
 function loadSimulation() {
-    let renderInfo = Simulation.init();
     let AtomList = Atoms.generateGrid(4, 4, 4);
     //     [
     //     Atoms.create("ar", 25, 0, 0),
@@ -37,8 +38,9 @@ loadSimulation();
 $('#btnReset').click(() => {
     Simulation.stop();
     $('#btnPlay').text("Start");
-    Simulation.clearAtoms();
+    Simulation.clearAtoms(renderInfo.scene);
     loadSimulation();
+    setTimeout(() => { Simulation.start(); }, 200);
 });
 
 $('#btnPlay').click(() => {

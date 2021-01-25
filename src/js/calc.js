@@ -3,9 +3,9 @@ import { Vector } from '../res/lib/vector.js';
 const MaxDistance = 100000000000;
 const CONST_k = 1.380658e-23;
 
-let atomMass = 3.36e5;
-let epsilon = 1.8;
-let sigma = 15;
+let atomMass = 336000;
+let epsilon = 0.005;
+let sigma = 31;
 let sigma2 = Math.pow(sigma, 2);
 
 export function updatePositions(atomList, timeStep) {
@@ -28,7 +28,6 @@ function getForce(atomList) {
             if (length2 < MaxDistance) {
                 let forcePotential = (sigma2 / length2) * (sigma2 / length2) * (sigma2 / length2);
                 let force = 24 * epsilon * (forcePotential - 2 * forcePotential * forcePotential);
-                // console.log("Kraft: ", force, " Distanz: ", Math.sqrt(length2));
                 distanceV = Vector.mul(distanceV, force)
 
                 forces[atom] = Vector.add(forces[atom], distanceV);
@@ -81,4 +80,4 @@ function updateParams() {
     epsilon = $('#epsilonInput').val();
 }
 
-$('#btnReset').click(updateParams);
+$('#btnSave').click(updateParams);

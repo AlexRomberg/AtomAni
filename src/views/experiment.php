@@ -73,16 +73,17 @@ Copyright (c) 2020 Alexander Romberg, Dario Romandini
                             <span class="collumn">
                                 <span class="explained-input">
                                     <label for="epsilonInput">Epsilon</label>
-                                    <input class="number-input" id="epsilonInput" name="epsilonInput" type="number" min="0" value="1.8">
+                                    <input class="number-input" id="epsilonInput" name="epsilonInput" type="number" min="0" value="0.005">
                                 </span>
                             <span class="explained-input">
                                     <label for="sigmaInput">Sigma</label>
-                                    <input class="number-input" id="sigmaInput" name="sigmaInput" type="number" min="0" value="15">
+                                    <input class="number-input" id="sigmaInput" name="sigmaInput" type="number" min="0" value="31">
                                 </span>
                             <span class="explained-input">
                                     <label for="massInput">Atom Masse</label>
                                     <input class="number-input" id="massInput" name="massInput" type="number" min="0" value="336000">
                                 </span>
+                            <button id="btnSave" class="rounded">Speichern</button>
                             </span>
                         </div>
                     </div>

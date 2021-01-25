@@ -56,8 +56,12 @@ export function addAtoms(atoms, scene) {
     });
 }
 
-export function clearAtoms() {
+export function clearAtoms(scene) {
+    AtomList.forEach(atom => {
+        scene.remove(atom.object);
+    });
     AtomList = new Array();
+
 }
 
 function resizeRendererToDisplaySize(renderer) {
