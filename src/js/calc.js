@@ -26,7 +26,8 @@ function getForce(atomList) {
             let length2 = distanceV.x * distanceV.x + distanceV.y * distanceV.y + distanceV.z * distanceV.z;
 
             if (length2 < MaxDistance) {
-                let force = 24 * epsilon * (Math.pow((sigma2 / length2), 3) - 2 * Math.pow((sigma2 / length2), 6));
+                let forcePotential = (sigma2 / length2) * (sigma2 / length2) * (sigma2 / length2);
+                let force = 24 * epsilon * (forcePotential - 2 * forcePotential * forcePotential);
                 // console.log("Kraft: ", force, " Distanz: ", Math.sqrt(length2));
                 distanceV = Vector.mul(distanceV, force)
 

@@ -23,10 +23,11 @@ function handleResize() {
 // ----------------------------------------------------------------------------
 function loadSimulation() {
     let renderInfo = Simulation.init();
-    let AtomList = [
-        Atoms.create("ar", 25, 0, 0),
-        Atoms.create("ne", -25, 0, 0)
-    ]
+    let AtomList = Atoms.generateGrid(4, 4, 4);
+    //     [
+    //     Atoms.create("ar", 25, 0, 0),
+    //     Atoms.create("ne", -25, 0, 0)
+    // ]
     Simulation.addAtoms(AtomList, renderInfo.scene);
     Simulation.startRendering(renderInfo);
 }
